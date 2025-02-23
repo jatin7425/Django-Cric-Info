@@ -130,16 +130,3 @@ Your project is now running at **http://127.0.0.1:8000/** 🎉
 
 ---
 
-## 🤝 Contributing
-If you'd like to contribute, please **fork the repository** and submit a **pull request**.
-
----
-
-## 📜 License
-This project is licensed under the **MIT License**.
-
----
-
-## 📞 Contact
-If you have any questions, feel free to reach out at **your-email@example.com** ✉️.
-
