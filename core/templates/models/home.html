@@ -1,0 +1,120 @@
+{% extends './base.html' %}
+
+{% block title %}
+    cricInfo
+{% endblock %}
+
+{% block heding %}
+    Player Stats
+{% endblock heding %}
+
+{% block content %}
+
+
+    {% if data %}
+    <!-- Search Bar with Filters -->
+        <div class="search-container">
+            <form action="{% url 'home' %}" method="GET">
+                <input type="text" name="q" placeholder="Search for a cricketer..." value="{{ query }}">
+            
+                <input type="number" name="min_age" placeholder="Min Age" value="{{ min_age }}">
+                <input type="number" name="max_age" placeholder="Max Age" value="{{ max_age }}">
+            
+                <input type="text" name="country" placeholder="Country" value="{{ country }}">
+            
+                <label>
+                    <input type="checkbox" name="is_captain" {% if is_captain %}checked{% endif %}> Captain
+                </label>
+                <br/>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Jersey Number</th>
+                    <th>Total Runs</th>
+                    <th>Total Centuries</th>
+                    <th>Total Wickets</th>
+                    <th>Matches Played</th>
+                    <th>Batting Average</th>
+                    <th>Strike Rate</th>
+                    <th>Highest Score</th>
+                    <th>Country</th>
+                    <th>Is Captain</th>
+                    <th>Date of Birth</th>
+                    <th>Player Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for items in data %}
+                    <tr>
+                        <td><a  href="{% url 'one_player_data' items.id %}">{{ items.name }}</a></td>
+                        <td>{{ items.age }}</td>
+                        <td>{{ items.jersey_number }}</td>
+                        <td>{{ items.total_runs }}</td>
+                        <td>{{ items.total_centuries }}</td>
+                        <td>{{ items.total_wickets }}</td>
+                        <td>{{ items.matches_played }}</td>
+                        <td>{{ items.batting_average }}</td>
+                        <td>{{ items.strike_rate }}</td>
+                        <td>{{ items.highest_score }}</td>
+                        <td>{{ items.country }}</td>
+                        <td>
+                            {% if items.is_captain %}
+                                Yes
+                            {% else %}
+                                No
+                            {% endif %}
+                        </td>
+                        <td>{{ items.date_of_birth }}</td>
+                        <td>{{ items.player_type }}</td>
+                        <td class="editor">
+                            <a href="{% url 'del_cricketer' items.id %}" class="delete-btn">Del</a>
+                            <a href="{% url 'update_cricketer' items.id %}" class="edit-btn">Edit</a>
+                        </td>                        
+                    </tr>    
+                {% endfor %}
+            </tbody>
+        </table>
+    {% elif onePlayerData %}
+        <ul>
+            <li><strong>Name:</strong><p>{{ onePlayerData.name }}</p></li>
+            <li><strong>Age:</strong><p>{{ onePlayerData.age }}</p></li>
+            <li><strong>Jersey Number:</strong><p>{{ onePlayerData.jersey_number }}</p></li>
+            <li><strong>Total Runs:</strong><p>{{ onePlayerData.total_runs }}</p></li>
+            <li><strong>Total Centuries:</strong><p>{{ onePlayerData.total_centuries }}</p></li>
+            <li><strong>Total Wickets:</strong><p>{{ onePlayerData.total_wickets }}</p></li>
+            <li><strong>Matches Played:</strong><p>{{ onePlayerData.matches_played }}</p></li>
+            <li><strong>Batting Average:</strong><p>{{ onePlayerData.batting_average }}</p></li>
+            <li><strong>Strike Rate:</strong><p>{{ onePlayerData.strike_rate }}</p></li>
+            <li><strong>Highest Score:</strong><p>{{ onePlayerData.highest_score }}</p></li>
+            <li><strong>Country:</strong><p>{{ onePlayerData.country }}</p></li>
+            <li><strong>Is Captain:</strong><p>{{ onePlayerData.is_captain }}</p></li>
+            <li><strong>Date of Birth:</strong><p>{{ onePlayerData.date_of_birth }}</p></li>
+            <li><strong>Player Type:</strong><p>{{ onePlayerData.player_type }}</p></li>
+        </ul> 
+    {% else %}
+        <h3>No Data Available</h3>
+    {% endif %}
+
+    <!-- Pagination Navigation -->
+    <div class="pagination">
+       <span class="page-links">
+            {% if data.has_previous %}
+                <a href="?page={{ data.previous_page_number }}{% if query %}&q={{ query }}{% endif %}{% if min_age %}&min_age={{ min_age }}{% endif %}{% if max_age %}&max_age={{ max_age }}{% endif %}{% if country %}&country={{ country }}{% endif %}{% if is_captain %}&is_captain={{ is_captain }}{% endif %}">Previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ data.number }} of {{ data.paginator.num_pages }}
+            </span>
+
+        {% if data.has_next %}
+            <a href="?page={{ data.next_page_number }}{% if query %}&q={{ query }}{% endif %}{% if min_age %}&min_age={{ min_age }}{% endif %}{% if max_age %}&max_age={{ max_age }}{% endif %}{% if country %}&country={{ country }}{% endif %}{% if is_captain %}&is_captain={{ is_captain }}{% endif %}">Next</a>
+        {% endif %}
+        </span>
+    </div>
+{% endblock %}

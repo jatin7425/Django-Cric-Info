@@ -1,0 +1,28 @@
+{% extends './base.html' %}
+
+{% block title %}
+    My Collection
+{% endblock %}
+
+{% block heding %}
+    My image Collection
+{% endblock heding %}
+
+
+{% block content %}
+<div style="padding: 20px;">
+    <!-- Image Gallery Section -->
+    {% if data %}
+        <div class="image-gallery">
+            {% for items in data %}
+                <div>
+                    <img src="{{ items.image.url }}" alt="{{ items.name }} image" />
+                    <h3>{{ items.name }}</h3>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h3 style="text-align:center;">No Data Available</h3>
+    {% endif %}
+</div>
+{% endblock %}

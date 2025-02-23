@@ -1,0 +1,117 @@
+{% extends './base.html' %}
+
+{% block title %}
+Create a New Cricketer
+{% endblock %}
+
+{% block heding %}
+Create a New Cricketer
+{% endblock heding %}
+
+{% block content %}
+
+<div class="form-container">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% if form.errors %}
+        <div class="error-container">
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        <li><strong>{{ field|capfirst }}</strong>: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <div class="form-field">
+            <label for="{{ form.name.id_for_label }}">Name</label>
+            {{ form.name }}
+            <span class="error-message">{{ form.name.errors }}</span>
+        </div>
+        
+        <div class="form-field">
+            <label for="{{ form.age.id_for_label }}">Age</label>
+            {{ form.age }}
+            <span class="error-message">{{ form.age.errors }}</span>
+        </div>
+
+        <div class="form-field">
+            <label for="{{ form.jersey_number.id_for_label }}">Jersey Number</label>
+            {{ form.jersey_number }}
+            <span class="error-message">{{ form.jersey_number.errors }}</span>
+        </div>
+
+        <div class="form-field">
+            <label for="{{ form.total_runs.id_for_label }}">Total Runs</label>
+            {{ form.total_runs }}
+            <span class="error-message">{{ form.total_runs.errors }}</span>
+        </div>
+
+        <div class="form-field">
+            <label for="{{ form.total_centuries.id_for_label }}">Total Centuries</label>
+            {{ form.total_centuries }}
+            <span class="error-message">{{ form.total_centuries.errors }}</span>
+        </div>
+
+        <div class="form-field">
+            <label for="{{ form.total_wickets.id_for_label }}">Total Wickets</label>
+            {{ form.total_wickets }}
+            <span class="error-message">{{ form.total_wickets.errors }}</span>
+        </div>
+
+        <div class="form-field">
+            <label for="{{ form.matches_played.id_for_label }}">Matches Played</label>
+            {{ form.matches_played }}
+            <span class="error-message">{{ form.matches_played.errors }}</span>
+        </div>
+
+        <div class="form-field">
+            <label for="{{ form.batting_average.id_for_label }}">Batting Average</label>
+            {{ form.batting_average }}
+            <span class="error-message">{{ form.batting_average.errors }}</span>
+        </div>
+
+        <div class="form-field">
+            <label for="{{ form.strike_rate.id_for_label }}">Strike Rate</label>
+            {{ form.strike_rate }}
+            <span class="error-message">{{ form.strike_rate.errors }}</span>
+        </div>
+
+        <div class="form-field">
+            <label for="{{ form.highest_score.id_for_label }}">Highest Score</label>
+            {{ form.highest_score }}
+            <span class="error-message">{{ form.highest_score.errors }}</span>
+        </div>
+
+        <div class="form-field">
+            <label for="{{ form.country.id_for_label }}">Country</label>
+            {{ form.country }}
+            <span class="error-message">{{ form.country.errors }}</span>
+        </div>
+
+        <div class="form-field">
+            <label for="{{ form.is_captain.id_for_label }}">Is Captain?</label>
+            {{ form.is_captain }}
+            <span class="error-message">{{ form.is_captain.errors }}</span>
+        </div>
+
+        <div class="form-field">
+            <label for="{{ form.date_of_birth.id_for_label }}">Date of Birth</label>
+            {{ form.date_of_birth }}
+            <span class="error-message">{{ form.date_of_birth.errors }}</span>
+        </div>
+
+        <div class="form-field">
+            <label for="{{ form.player_type.id_for_label }}">Player Type</label>
+            {{ form.player_type }}
+            <span class="error-message">{{ form.player_type.errors }}</span>
+        </div>
+
+        <button type="submit" class="submit-btn">Create Cricketer</button>
+    </form>
+</div>
+
+{% endblock %}

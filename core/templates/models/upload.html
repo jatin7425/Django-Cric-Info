@@ -1,0 +1,40 @@
+{% extends './base.html' %}
+
+{% block title %}
+    upload file
+{% endblock %}
+
+{% block heding %}
+    Make a Collection
+{% endblock heding %}
+
+
+{% block content %}
+    <div class="container">
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                {{ form.name }}
+            </div>
+
+            <div class="form-group">
+                <label for="image">Image:</label>
+                {{ form.image }}
+            </div>
+
+            <div class="form-group">
+                <label for="file">File:</label>
+                {{ form.file }}
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div>
+        <h1>this is sent email</h1>
+        <a href="{% url 'send_email'%}" class="" >send email</a>
+    </div>
+{% endblock %}

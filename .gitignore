@@ -1,0 +1,52 @@
+# Ignore Python virtual environments
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore environment files
+.env
+*.env
+
+# Ignore compiled files
+*.class
+*.DS_Store
+
+# Ignore logs and temp files
+*.log
+*.sqlite3
+*.swp
+
+# Ignore IDE/editor config files
+.vscode/
+.idea/
+*.iml
+
+# Ignore Django database (if using SQLite)
+db.sqlite3
+
+# Ignore Django migrations cache, except __init__.py
+*/migrations/*.pyc
+*/migrations/*.pyo
+*/migrations/__pycache__/
+*/migrations/
+!*/migrations/__init__.py
+
+# Ignore static files
+staticfiles/
+static/
+
+django_cache/
+media/files/
+media/images/
+
+# Allow empty folders to be tracked
+!media/.gitkeep
+!media/files/.gitkeep
+!media/images/.gitkeep
+!uploads/.gitkeep
+!staticfiles/.gitkeep
+!static/.gitkeep
+!django_cache/.gitkeep
