@@ -59,7 +59,7 @@ models/
 ### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/jatin7425/Django-Cric-Info.git
-cd django-cricketer-management
+cd Django-Cric-Info
 ```
 
 ### 2️⃣ Create a Virtual Environment
