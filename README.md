@@ -58,7 +58,7 @@ models/
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/your-username/django-cricketer-management.git
+git clone https://github.com/jatin7425/Django-Cric-Info.git
 cd django-cricketer-management
 ```
 
