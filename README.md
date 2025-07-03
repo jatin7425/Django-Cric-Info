@@ -1,11 +1,11 @@
-# 📌 Django-Cric-Info
+# Django-Cric-Info
 
-## 📖 Overview
+## Overview
 This is a **Django-based Cricketer Management System** that allows users to register, log in, and manage a collection of cricketers. It includes features like **searching, filtering, pagination, authentication, file uploads, and email notifications**. The system uses **MySQL as the database** and integrates **Google and GitHub authentication**.
 
 ---
 
-## 🚀 Features
+## Features
 - **User Authentication**
   - Register/Login with Django authentication
   - Social authentication (Google & GitHub)
@@ -30,7 +30,7 @@ This is a **Django-based Cricketer Management System** that allows users to regi
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 ```bash
 models/
 │-- core/
@@ -54,27 +54,27 @@ models/
 
 ---
 
-## 🔧 Setup Guide
+## Setup Guide
 
-### 1️⃣ Clone the Repository
+### Clone the Repository
 ```bash
 git clone https://github.com/jatin7425/Django-Cric-Info.git
 cd Django-Cric-Info
 ```
 
-### 2️⃣ Create a Virtual Environment
+### Create a Virtual Environment
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # Mac/Linux
 .venv\Scripts\activate     # Windows
 ```
 
-### 3️⃣ Install Dependencies
+### Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Create a `.env` File
+### Create a `.env` File
 ```bash
 DB_NAME=your_database_name
 DB_USER=your_database_user
@@ -89,18 +89,18 @@ SOCIAL_AUTH_GITHUB_KEY=your_github_key
 SOCIAL_AUTH_GITHUB_SECRET=your_github_secret
 ```
 
-### 5️⃣ Apply Migrations
+### Apply Migrations
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 6️⃣ Create a Superuser
+### Create a Superuser
 ```bash
 python manage.py createsuperuser
 ```
 
-### 7️⃣ Run the Server
+### Run the Server
 ```bash
 python manage.py runserver
 ```
@@ -109,7 +109,7 @@ Your project is now running at **http://127.0.0.1:8000/** 🎉
 
 ---
 
-## 🛠 Usage Guide
+## Usage Guide
 - **Access the homepage:** `http://127.0.0.1:8000/`
 - **Login/Register:** `http://127.0.0.1:8000/loginform/`
 - **Manage cricketers:** `http://127.0.0.1:8000/cricketers/`
@@ -119,7 +119,7 @@ Your project is now running at **http://127.0.0.1:8000/** 🎉
 
 ---
 
-## 📌 API Endpoints (Optional if API is implemented)
+## API Endpoints (Optional if API is implemented)
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/api/cricketers/` | GET | Get all cricketers |
